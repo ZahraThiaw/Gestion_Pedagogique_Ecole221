@@ -1,0 +1,22 @@
+
+services:
+  database: Core\Database\MysqlDatabase
+  session:  Core\Session\Session
+  validator: Core\Validator\Validator
+  securityDatabase: App\Controller\SecurityDatabase
+  courModel: App\Model\CourModel
+  moduleModel: App\Model\ModuleModel
+  utilisateurModel: App\Model\UtilisateurModel
+  coursprofesseurModel: App\Model\CoursprofesseurModel
+  semestreModel: App\Model\SemestreModel
+  courssemestreModel: App\Model\CourssemestreModel
+  classeModel: App\Model\ClasseModel
+  sessiondecourModel: App\Model\SessiondecourModel
+  sallesModel: App\Model\SalleModel
+  sessiondecoursclasseModel: App\Model\SessiondecoursclasseModel
+  Core\Errors\ErrorInterface:  Core\Errors\ErrorController
+  Core\Database\DatabaseInterface: Core\Database\MysqlDatabase
+  Core\Session\SessionInterface: Core\Session\Session
+  Core\Validator\ValidatorInterface: Core\Validator\Validator
+
+

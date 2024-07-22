@@ -1,0 +1,77 @@
+mysql:
+  class: MysqlDatabase
+  host: localhost
+  port: 3306
+  user: oumar
+  password: passer123
+  name: test
+  driver: mysql
+  dbname: gestiondette
+
+services:
+  Core\Database\DatabaseInterface: Core\Database\MysqlDatabase
+paths:
+  entities:
+    client: ClientEntity
+    dette: DetteEntity
+    user: UserEntity
+  models:
+    client: ClientModel
+    dette: DetteModel
+    user: UserModel
+  controllers:
+    client: ClientController
+    dette: DetteController
+    security: SecurityController
+  security: SecurityDB
+
+validation:
+  v1:
+    rules:
+      telephone:
+        required: true
+        format: numero
+      email:
+        required: true
+        format: email
+      nom:
+        required: true
+        format: text
+      prenom:
+        required: true
+        format: text
+        
+      
+    messages:
+      required: "Le champ {field} est requis."
+      minLength: "Le champ {field} doit contenir au moins {value} caractères."
+      maxLength: "Le champ {field} ne doit pas dépasser {value} caractères."
+      format: "Le champ {field} doit être un {value} valide."
+  v2:
+    rules:
+      telephone:
+        required: true
+        minLength: 9
+        format: telephone
+      nom:
+        required: true
+      prenom:
+        required: true
+        minLength: 2
+        maxLength: 100
+      email:
+        required: true
+        format: emails
+      phone:
+        required: true
+        format: telephone 
+    messages:
+      required: "Le champ {field} est obligatoire."
+      minLength: "Le champ {field} doit avoir au moins {value} caractères."
+      maxLength: "Le champ {field} doit avoir au maximum {value} caractères."
+      format: "Le champ {field} doit être un {value} valide."
+
+
+validator_version: v1
+database_version: MysqlDatabase
+
